@@ -1,0 +1,23 @@
+# arx-pub-db / community.db — the arx community registry (PUBLIC, unofficial)
+#
+# Community-contributed PUBLIC git repositories that arx can browse and install. Anyone can add
+# a repo by opening a pull request against this file. This is the open, community half of arx:
+# the official, signed, R2-delivered tools live in arx's tools index (fetched + sha256-verified),
+# NOT here. Entries here are NOT vetted or signed by Stingray Labs — arx builds/installs them
+# straight from their public git source, so treat them like the AUR: read the code, install at
+# your own risk. arx still runs its normal pre-exec guard + PKGBUILD/script scan on them.
+#
+# Format — pipe-delimited, one repo per line, exactly 5 fields, no trailing pipe:
+#   name | repo_url | category | description | maintainer
+#
+#   name        unique, [a-z0-9-] (becomes the arx install target + clone dir)
+#   repo_url    an https:// git URL (HTTPS only — arx refuses ssh/file/http)
+#   category    tool | theme | plugin | arsenal | kernel | lib | other
+#   description one short line, no pipes
+#   maintainer  the contributor's GitHub handle (who vouches for / maintains the entry)
+#
+# Install one with:  arx pub install <name>       Browse:  arx pub            (see the README)
+# Lines starting with # are comments; blank lines are ignored.
+#
+kernel-builder|https://github.com/0xb0rn3/kernel-builder|tool|arx Kernel Tuner (akt): cross-distro kernel build with a config gate + web GUI|0xb0rn3
+deathstr0ke|https://github.com/0xb0rn3/deathstr0ke|tool|Emergency anti-forensics: duress crypto-erase, pre-boot LUKS hook, PAM trigger|0xb0rn3

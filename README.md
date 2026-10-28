@@ -8,7 +8,7 @@ the community can contribute freely, the way the AUR works for Arch.
 
 ## Two channels, one tool
 
-- **Official tools** — signed and delivered instantly from Cloudflare R2, verified by sha256
+- **Official tools** — delivered instantly from Cloudflare R2 over TLS and verified by sha256
   (fail-closed) before anything runs. Their source lives in the Stingray Labs repos. You do not
   find these here; arx pulls them from its tools index automatically on `arx update`.
 - **Community tools** *(this repo)* — public git repos contributed by anyone. arx builds and
@@ -30,7 +30,7 @@ arx pub install <name>      # build + install one (from its public git source)
 2. Add one line to `community.db`, keeping the fields exact:
 
    ```
-   name | repo_url | category | description | maintainer
+   name | repo_url | category | description | maintainer | verify
    ```
 
    - **name** — unique, lowercase, `[a-z0-9-]`. Becomes the arx install target.
@@ -38,6 +38,8 @@ arx pub install <name>      # build + install one (from its public git source)
    - **category** — one of `tool`, `theme`, `plugin`, `arsenal`, `kernel`, `lib`, `other`.
    - **description** — one short line, no pipe characters.
    - **maintainer** — your GitHub handle. You vouch for and maintain the entry.
+   - **verify** — the exact reviewed source revision, written as `commit=<full 40-hex SHA>`.
+     Mutable branch tips are rejected during install.
 
 3. Keep the list alphabetical within its section, one repo per line.
 4. Open a pull request. Keep the entry honest: describe what the repo actually does.
